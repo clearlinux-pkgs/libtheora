@@ -1,8 +1,12 @@
-Configure miss: bibtex
-Configure miss: fig2dev
-Configure miss: sdl-config
+Configure miss: SDL - version >= 0.11.0
+Configure miss: SDL - version >= 0.11.0
 Configure miss: SDL - version >= 0.11.0
 Configure miss: bibtex
+Configure miss: bibtex
+Configure miss: bibtex
+Configure miss: fig2dev
+Configure miss: fig2dev
 Configure miss: fig2dev
 Configure miss: sdl-config
-Configure miss: SDL - version >= 0.11.0
+Configure miss: sdl-config
+Configure miss: sdl-config

@@ -4,13 +4,12 @@
 #
 Name     : libtheora
 Version  : 1.1.1
-Release  : 16
+Release  : 17
 URL      : http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2
 Source0  : http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2
 Summary  : Development tools for Theora applications.
 Group    : Development/Tools
 License  : BSD-3-Clause
-Requires: libtheora-filemap = %{version}-%{release}
 Requires: libtheora-lib = %{version}-%{release}
 Requires: libtheora-license = %{version}-%{release}
 BuildRequires : buildreq-scons
@@ -67,19 +66,10 @@ Group: Documentation
 doc components for the libtheora package.
 
 
-%package filemap
-Summary: filemap components for the libtheora package.
-Group: Default
-
-%description filemap
-filemap components for the libtheora package.
-
-
 %package lib
 Summary: lib components for the libtheora package.
 Group: Libraries
 Requires: libtheora-license = %{version}-%{release}
-Requires: libtheora-filemap = %{version}-%{release}
 
 %description lib
 lib components for the libtheora package.
@@ -118,7 +108,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1634258708
+export SOURCE_DATE_EPOCH=1656049737
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -141,9 +131,9 @@ make  %{?_smp_mflags}
 popd
 unset PKG_CONFIG_PATH
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3"
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3"
-export FFLAGS="$FFLAGS -m64 -march=x86-64-v3"
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
+export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3"
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3"
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 %configure --disable-static
@@ -161,7 +151,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1634258708
+export SOURCE_DATE_EPOCH=1656049737
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libtheora
 cp %{_builddir}/libtheora-1.1.1/COPYING %{buildroot}/usr/share/package-licenses/libtheora/5c1d4d8f603100ce87f5dab2182b9641c505bcd1
@@ -184,7 +174,7 @@ pushd ../buildavx2/
 %make_install_v3
 popd
 %make_install
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -218,19 +208,23 @@ popd
 %defattr(0644,root,root,0755)
 %doc /usr/share/doc/libtheora/*
 
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-libtheora
-
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/glibc-hwcaps/x86-64-v3/libtheora.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libtheora.so.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libtheora.so.0.3.10
+/usr/lib64/glibc-hwcaps/x86-64-v3/libtheoradec.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libtheoradec.so.1
+/usr/lib64/glibc-hwcaps/x86-64-v3/libtheoradec.so.1.1.4
+/usr/lib64/glibc-hwcaps/x86-64-v3/libtheoraenc.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libtheoraenc.so.1
+/usr/lib64/glibc-hwcaps/x86-64-v3/libtheoraenc.so.1.1.2
 /usr/lib64/libtheora.so.0
 /usr/lib64/libtheora.so.0.3.10
 /usr/lib64/libtheoradec.so.1
 /usr/lib64/libtheoradec.so.1.1.4
 /usr/lib64/libtheoraenc.so.1
 /usr/lib64/libtheoraenc.so.1.1.2
-/usr/share/clear/optimized-elf/lib*
 
 %files lib32
 %defattr(-,root,root,-)

@@ -4,7 +4,7 @@
 #
 Name     : libtheora
 Version  : 1.1.1
-Release  : 22
+Release  : 23
 URL      : http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2
 Source0  : http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2
 Summary  : Development tools for Theora applications.
@@ -108,7 +108,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656133638
+export SOURCE_DATE_EPOCH=1665097128
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -151,10 +151,10 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1656133638
+export SOURCE_DATE_EPOCH=1665097128
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libtheora
-cp %{_builddir}/libtheora-1.1.1/COPYING %{buildroot}/usr/share/package-licenses/libtheora/5c1d4d8f603100ce87f5dab2182b9641c505bcd1
+cp %{_builddir}/libtheora-%{version}/COPYING %{buildroot}/usr/share/package-licenses/libtheora/5c1d4d8f603100ce87f5dab2182b9641c505bcd1
 pushd ../build32/
 %make_install32
 if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
@@ -185,6 +185,9 @@ popd
 /usr/include/theora/theora.h
 /usr/include/theora/theoradec.h
 /usr/include/theora/theoraenc.h
+/usr/lib64/glibc-hwcaps/x86-64-v3/libtheora.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libtheoradec.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libtheoraenc.so
 /usr/lib64/libtheora.so
 /usr/lib64/libtheoradec.so
 /usr/lib64/libtheoraenc.so
@@ -210,13 +213,10 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/glibc-hwcaps/x86-64-v3/libtheora.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libtheora.so.0
 /usr/lib64/glibc-hwcaps/x86-64-v3/libtheora.so.0.3.10
-/usr/lib64/glibc-hwcaps/x86-64-v3/libtheoradec.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libtheoradec.so.1
 /usr/lib64/glibc-hwcaps/x86-64-v3/libtheoradec.so.1.1.4
-/usr/lib64/glibc-hwcaps/x86-64-v3/libtheoraenc.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libtheoraenc.so.1
 /usr/lib64/glibc-hwcaps/x86-64-v3/libtheoraenc.so.1.1.2
 /usr/lib64/libtheora.so.0

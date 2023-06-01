@@ -5,7 +5,7 @@
 #
 Name     : libtheora
 Version  : 1.1.1
-Release  : 33
+Release  : 34
 URL      : http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2
 Source0  : http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2
 Summary  : Development tools for Theora applications.
@@ -112,7 +112,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685636237
+export SOURCE_DATE_EPOCH=1685645212
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -155,7 +155,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1685636237
+export SOURCE_DATE_EPOCH=1685645212
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libtheora
 cp %{_builddir}/libtheora-%{version}/COPYING %{buildroot}/usr/share/package-licenses/libtheora/5c1d4d8f603100ce87f5dab2182b9641c505bcd1 || :

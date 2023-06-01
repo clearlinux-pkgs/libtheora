@@ -5,7 +5,7 @@
 #
 Name     : libtheora
 Version  : 1.1.1
-Release  : 32
+Release  : 33
 URL      : http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2
 Source0  : http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2
 Summary  : Development tools for Theora applications.
@@ -112,7 +112,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683050477
+export SOURCE_DATE_EPOCH=1685636237
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -155,7 +155,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1683050477
+export SOURCE_DATE_EPOCH=1685636237
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libtheora
 cp %{_builddir}/libtheora-%{version}/COPYING %{buildroot}/usr/share/package-licenses/libtheora/5c1d4d8f603100ce87f5dab2182b9641c505bcd1 || :
@@ -185,9 +185,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libtheora.so
-/V3/usr/lib64/libtheoradec.so
-/V3/usr/lib64/libtheoraenc.so
 /usr/include/theora/codec.h
 /usr/include/theora/theora.h
 /usr/include/theora/theoradec.h
@@ -217,11 +214,8 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libtheora.so.0
 /V3/usr/lib64/libtheora.so.0.3.10
-/V3/usr/lib64/libtheoradec.so.1
 /V3/usr/lib64/libtheoradec.so.1.1.4
-/V3/usr/lib64/libtheoraenc.so.1
 /V3/usr/lib64/libtheoraenc.so.1.1.2
 /usr/lib64/libtheora.so.0
 /usr/lib64/libtheora.so.0.3.10

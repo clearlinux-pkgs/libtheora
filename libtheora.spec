@@ -5,7 +5,7 @@
 #
 Name     : libtheora
 Version  : 1.1.1
-Release  : 57
+Release  : 58
 URL      : http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2
 Source0  : http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2
 Summary  : Development tools for Theora applications.
